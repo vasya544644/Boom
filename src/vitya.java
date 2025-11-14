@@ -48,87 +48,109 @@
 //       System.out.println("Денис теперь получает = "+DenN+". Годовой доход вырос на "+Den+" рублей.");
 //       System.out.println("Кристина теперь получает = "+KrisN+". Годовой доход вырос на "+Kris+" рублей.");
 //Домашняя работа
-public class vitya {
+//public class vitya {
+//    public static void main(String[] args){
+//        int age = 18;
+//        if(age>=2&&age<=6){
+//            System.out.println("Если возраст человека равен "+ age+", то ему нужно ходить в садик");
+//        }if(age>6&&age<=17){
+//            System.out.println("Если возраст человека равен "+ age+", то ему нужно ходить в школу");
+//        }if(age>17&&age<=24){
+//            System.out.println("Если возраст человека равен "+ age+", то ему нужно ходить в университет");
+//        }if(age>24) {
+//            System.out.println("Если возраст человека равен " + age + ", то ему нужно ходить на работу");
+//        }
+//        System.out.println();
+//        int a = 45;
+//        int train = 102;
+//        int seat = 60;
+//        if(a>60){
+//            System.out.println("В вагоне нет сидячих мест");
+//        }else{
+//            System.out.println("В вагоне есть сидячие места");
+//        }
+//        System.out.println();
+//        int year = 2021;
+//        if(year>1584) {
+//            if (year % 100 == 0) {
+//                System.out.println("Год не является високосным");
+//            } else {
+//                if (year % 4 == 0) {
+//                    System.out.println("Год является високосным");
+//                }else {
+//                    System.out.println("Год не является високосным");
+//                }
+//            }
+//        }else{
+//            System.out.println("Год не является високосным");
+//        }
+//        System.out.println();
+//        int monthNumber = 12;
+//        switch(monthNumber){
+//            case 1:
+//                System.out.println("Зима");
+//                break;
+//            case 2:
+//                System.out.println("Зима");
+//                break;
+//            case 3:
+//                System.out.println("Весна");
+//                break;
+//            case 4:
+//                System.out.println("Весна");
+//                break;
+//            case 5:
+//                System.out.println("Весна");
+//                break;
+//            case 6:
+//                System.out.println("Лето");
+//                break;
+//            case 7:
+//                System.out.println("Лето");
+//                break;
+//            case 8:
+//                System.out.println("Лето");
+//                break;
+//            case 9:
+//                System.out.println("Осень");
+//                break;
+//            case 10:
+//                System.out.println("Осень");
+//                break;
+//            case 11:
+//                System.out.println("Осень");
+//                break;
+//            case 12:
+//                System.out.println("Зима");
+//                break;
+//        }
+//        if(monthNumber<1){
+//            System.out.println("В году только 12 месяцев");
+//        }if(monthNumber>12){
+//          System.out.println("В году только 12 месяцев");
+//        }
+//    }
+//}
+public class vitya{
     public static void main(String[] args){
-        int age = 18;
-        if(age>=2&&age<=6){
-            System.out.println("Если возраст человека равен "+ age+", то ему нужно ходить в садик");
-        }if(age>6&&age<=17){
-            System.out.println("Если возраст человека равен "+ age+", то ему нужно ходить в школу");
-        }if(age>17&&age<=24){
-            System.out.println("Если возраст человека равен "+ age+", то ему нужно ходить в университет");
-        }if(age>24) {
-            System.out.println("Если возраст человека равен " + age + ", то ему нужно ходить на работу");
+        for(int i=1;i<=10;i++){
+            System.out.println(i);
         }
         System.out.println();
-        int a = 45;
-        int train = 102;
-        int seat = 60;
-        if(a>60){
-            System.out.println("В вагоне нет сидячих мест");
-        }else{
-            System.out.println("В вагоне есть сидячие места");
+        for(int a=0;a<=21;a+=2){
+            System.out.println(a);
         }
         System.out.println();
-        int year = 2021;
-        if(year>1584) {
-            if (year % 100 == 0) {
-                System.out.println("Год не является високосным");
-            } else {
-                if (year % 4 == 0) {
-                    System.out.println("Год является високосным");
-                }else {
-                    System.out.println("Год не является високосным");
-                }
-            }
-        }else{
-            System.out.println("Год не является високосным");
+        for(int b=7;b<=100;b+=7){
+            System.out.println(b);
         }
         System.out.println();
-        int monthNumber = 12;
-        switch(monthNumber){
-            case 1:
-                System.out.println("Зима");
-                break;
-            case 2:
-                System.out.println("Зима");
-                break;
-            case 3:
-                System.out.println("Весна");
-                break;
-            case 4:
-                System.out.println("Весна");
-                break;
-            case 5:
-                System.out.println("Весна");
-                break;
-            case 6:
-                System.out.println("Лето");
-                break;
-            case 7:
-                System.out.println("Лето");
-                break;
-            case 8:
-                System.out.println("Лето");
-                break;
-            case 9:
-                System.out.println("Осень");
-                break;
-            case 10:
-                System.out.println("Осень");
-                break;
-            case 11:
-                System.out.println("Осень");
-                break;
-            case 12:
-                System.out.println("Зима");
-                break;
-        }
-        if(monthNumber<1){
-            System.out.println("В году только 12 месяцев");
-        }if(monthNumber>12){
-          System.out.println("В году только 12 месяцев");
+        int bank = 0;
+        int year = 0;
+        for(int c=0;c<=12;c++){
+            bank+=12000;
+            year+=1;
+            System.out.println("Месяц "+year+",сумма накопления равна "+bank+" рублей.");
         }
     }
 }
-
