@@ -131,26 +131,71 @@
 //        }
 //    }
 //}
+//public class vitya{
+//    public static void main(String[] args){
+//        for(int i=1;i<=10;i++){
+//            System.out.println(i);
+//        }
+//        System.out.println();
+//        for(int a=0;a<=21;a+=2){
+//            System.out.println(a);
+//        }
+//        System.out.println();
+//        for(int b=7;b<=100;b+=7){
+//            System.out.println(b);
+//        }
+//        System.out.println();
+//        int bank = 0;
+//        int year = 0;
+//        for(int c=0;c<=12;c++){
+//            bank+=12000;
+//            year+=1;
+//            System.out.println("Месяц "+year+",сумма накопления равна "+bank+" рублей.");
+//        }
+//    }
+//}
 public class vitya{
     public static void main(String[] args){
-        for(int i=1;i<=10;i++){
-            System.out.println(i);
+        int i=0;
+        while(i<=50){
+            i+=1;
+            if(i%2==0){
+                System.out.println(i);
+            }
         }
+
         System.out.println();
-        for(int a=0;a<=21;a+=2){
-            System.out.println(a);
-        }
+
+        int number = 0;
+        int kol = 0;
+        do{
+            number++;
+            if(number%7==0){
+                kol+=1;
+            }
+        }while(number<=100);
+        System.out.println(kol);
+
         System.out.println();
-        for(int b=7;b<=100;b+=7){
-            System.out.println(b);
+
+        int s=1;
+        int sum=0;
+        while(s<101){
+            sum+=s;
+            s++;
         }
+        System.out.println(sum);
+
         System.out.println();
-        int bank = 0;
-        int year = 0;
-        for(int c=0;c<=12;c++){
-            bank+=12000;
-            year+=1;
-            System.out.println("Месяц "+year+",сумма накопления равна "+bank+" рублей.");
-        }
+
+        int num;
+        int a=0;
+        do{
+            num=(int)(Math.random()*21);
+            a++;
+            System.out.println(num);
+        }while(num!=15);
+        a-=1;
+        System.out.println("Кол-во num до наденного числа - "+a);
     }
 }
