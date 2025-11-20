@@ -154,48 +154,106 @@
 //        }
 //    }
 //}
+//public class vitya{
+//    public static void main(String[] args){
+//        int i=0;
+//        while(i<=50){
+//            i+=1;
+//            if(i%2==0){
+//                System.out.println(i);
+//            }
+//        }
+//
+//        System.out.println();
+//
+//        int number = 0;
+//        int kol = 0;
+//        do{
+//            number++;
+//            if(number%7==0){
+//                kol+=1;
+//            }
+//        }while(number<=100);
+//        System.out.println(kol);
+//
+//        System.out.println();
+//
+//        int s=1;
+//        int sum=0;
+//        while(s<101){
+//            sum+=s;
+//            s++;
+//        }
+//        System.out.println(sum);
+//
+//        System.out.println();
+//
+//        int num;
+//        int a=0;
+//        do{
+//            num=(int)(Math.random()*21);
+//            a++;
+//            System.out.println(num);
+//        }while(num!=15);
+//        a-=1;
+//        System.out.println("Кол-во num до наденного числа - "+a);
+//    }
+
 public class vitya{
-    public static void main(String[] args){
-        int i=0;
-        while(i<=50){
-            i+=1;
-            if(i%2==0){
-                System.out.println(i);
+    public static void main(String[] args) {
+//        1
+        int[] a = {1, 4, 2, 4};
+        int b = 0;
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i]);
+            b += a[i];
+        }
+        float c = (float) b / 2;
+        System.out.println("Среднее значение массива: " + c);
+
+        System.out.println();
+//        2
+        int[] d = {-1, -3, -5, -84};
+        for (int i = 0; i < d.length; i++) {
+            if (d[i] < 0) {
+                System.out.println(d[i] * -1);
+            } else {
+                System.out.println(d[i]);
             }
         }
-
+//        3
         System.out.println();
 
-        int number = 0;
-        int kol = 0;
-        do{
-            number++;
-            if(number%7==0){
-                kol+=1;
+        int[][] f = {
+                {12, 412, 4, 35},
+                {12, 12, 3, 0},
+                {1, 2, 3, 4},
+                {9, 8, 7, 6}
+        };
+        int h = 0;
+        for (int i = 0; i < f.length; i++) {
+            for (int u = 0; u < f[i].length; u++) {
+                h += f[i][u];
             }
-        }while(number<=100);
-        System.out.println(kol);
-
-        System.out.println();
-
-        int s=1;
-        int sum=0;
-        while(s<101){
-            sum+=s;
-            s++;
         }
-        System.out.println(sum);
-
+        System.out.println(h);
+//        4
         System.out.println();
-
-        int num;
-        int a=0;
-        do{
-            num=(int)(Math.random()*21);
-            a++;
-            System.out.println(num);
-        }while(num!=15);
-        a-=1;
-        System.out.println("Кол-во num до наденного числа - "+a);
+        int[] age = {2, 60, 16, 54};
+        int max = age[0];
+        for (int i = 1; i < age.length; i++)
+            max = Math.max(max, age[i]);
+        System.out.println(max);
+//        5
+        System.out.println();
+        int[] mass={5,1,2,3,5,2,3};
+        int n = mass[0];
+        for(int i=0;i<mass.length;i++){
+            for(int j=i+1;j<mass.length;j++){
+                if(mass[i]==mass[j]){
+                    System.out.println(mass[i]+" встречается больше одного раза");
+                }
+            }
+        }
     }
 }
