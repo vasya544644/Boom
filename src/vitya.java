@@ -199,61 +199,102 @@
 //        System.out.println("Кол-во num до наденного числа - "+a);
 //    }
 
-public class vitya{
-    public static void main(String[] args) {
-//        1
-        int[] a = {1, 4, 2, 4};
-        int b = 0;
-        for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
-            b += a[i];
-        }
-        float c = (float) b / 2;
-        System.out.println("Среднее значение массива: " + c);
-
-        System.out.println();
-//        2
-        int[] d = {-1, -3, -5, -84};
-        for (int i = 0; i < d.length; i++) {
-            if (d[i] < 0) {
-                System.out.println(d[i] * -1);
-            } else {
-                System.out.println(d[i]);
-            }
-        }
-//        3
-        System.out.println();
-
-        int[][] f = {
-                {12, 412, 4, 35},
-                {12, 12, 3, 0},
-                {1, 2, 3, 4},
-                {9, 8, 7, 6}
-        };
-        int h = 0;
-        for (int i = 0; i < f.length; i++) {
-            for (int u = 0; u < f[i].length; u++) {
-                h += f[i][u];
-            }
-        }
-        System.out.println(h);
+//public class vitya{
+//    public static void main(String[] args) {
+//       1
+//        int[] a = {1, 4, 2, 4};
+//        int b = 0;
+//        for (int i = 0; i < a.length; i++) {
+//            System.out.println(a[i]);
+//            b += a[i];
+//        }
+//        float c = (float) b / 2;
+//        System.out.println("Среднее значение массива: " + c);
+//
+//        System.out.println();
+//       2
+//        int[] d = {-1, -3, -5, -84};
+//        for (int i = 0; i < d.length; i++) {
+//            if (d[i] < 0) {
+//                System.out.println(d[i] * -1);
+//            } else {
+//                System.out.println(d[i]);
+//            }
+//        }
+//       3
+//        System.out.println();
+//
+//        int[][] f = {
+//                {12, 412, 4, 35},
+//                {12, 12, 3, 0},
+//                {1, 2, 3, 4},
+//                {9, 8, 7, 6}
+//        };
+//        int h = 0;
+//        for (int i = 0; i < f.length; i++) {
+//            for (int u = 0; u < f[i].length; u++) {
+//                h += f[i][u];
+//            }
+//        }
+//        System.out.println(h);
 //        4
-        System.out.println();
-        int[] age = {2, 60, 16, 54};
-        int max = age[0];
-        for (int i = 1; i < age.length; i++)
-            max = Math.max(max, age[i]);
-        System.out.println(max);
+//        System.out.println();
+//        int[] age = {2, 60, 16, 54};
+//        int max = age[0];
+//        for (int i = 1; i < age.length; i++)
+//            max = Math.max(max, age[i]);
+//        System.out.println(max);
 //        5
-        System.out.println();
-        int[] mass={5,1,2,3,5,2,3};
-        int n = mass[0];
-        for(int i=0;i<mass.length;i++){
-            for(int j=i+1;j<mass.length;j++){
-                if(mass[i]==mass[j]){
-                    System.out.println(mass[i]+" встречается больше одного раза");
-                }
-            }
+//        System.out.println();
+//        int[] mass={5,1,2,3,5,2,3};
+//        int n = mass[0];
+//        for(int i=0;i<mass.length;i++){
+//            for(int j=i+1;j<mass.length;j++){
+//                if(mass[i]==mass[j]){
+//                    System.out.println(mass[i]+" встречается больше одного раза");
+//                }
+//            }
+//        }
+//    }
+//}
+//public class vitya{
+//    public static void main(String[] args){
+//        int[] mass = {1,2,3,4,5,6};
+//        for(int Mas:mass){
+//            System.out.print(Mas+" ");
+//        }
+//        System.out.println();
+//        for(int i=0;i< mass.length;i++){
+//            System.out.print(mass[i]*2+" ");
+//        }
+//    }
+//}
+public class vitya{
+    public static void main(String[] args){
+        String text = "Я пишу код на Java";
+        int index = text.indexOf("Java");
+        String a;
+        if(index>0){
+            a = "Да";
+        }else{
+            a = "Нет";
         }
+        System.out.println("Длина строки - "+text.length()+". Первый символ - "+text.charAt(0)+". Содержит Java: "+a);
+
+        System.out.println();
+
+        String str = "Java";
+        System.out.println(str.substring(3));
+        System.out.println(str.toUpperCase());
+        System.out.println(str.indexOf(0));
+
+        System.out.println();
+
+        String name = "Eggs";
+        int num = 10;
+        int one = 7;
+        int all = 7*10;
+        String shop = String.format("Вы купили %s, количество: %d, итоговая стоимость: %d.",name,num,all);
+        System.out.println(shop);
     }
 }
