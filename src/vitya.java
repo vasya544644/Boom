@@ -269,32 +269,80 @@
 //        }
 //    }
 //}
-public class vitya{
-    public static void main(String[] args){
-        String text = "Я пишу код на Java";
-        int index = text.indexOf("Java");
-        String a;
-        if(index>0){
-            a = "Да";
+//public class vitya{
+//    public static void main(String[] args){
+//        String text = "Я пишу код на Java";
+//        int index = text.indexOf("Java");
+//        String a;
+//        if(index>0){
+//            a = "Да";
+//        }else{
+//            a = "Нет";
+//        }
+//        System.out.println("Длина строки - "+text.length()+". Первый символ - "+text.charAt(0)+". Содержит Java: "+a);
+//
+//        System.out.println();
+//
+//        String str = "Java";
+//        System.out.println(str.substring(3));
+//        System.out.println(str.toUpperCase());
+//        System.out.println(str.indexOf(0));
+//
+//        System.out.println();
+//
+//        String name = "Eggs";
+//        int num = 10;
+//        int one = 7;
+//        int all = 7*10;
+//        String shop = String.format("Вы купили %s, количество: %d, итоговая стоимость: %d.",name,num,all);
+//        System.out.println(shop);
+//    }
+//}
+class Library{
+    private String[] books=new String[5];
+    private int index = 0;
+    public String[] getBooks(){
+        return books;
+    }
+    public void setBooks(String[] books){
+        this.books = books;
+    }
+    public int getIndex(){
+        return index;
+    }
+    public void setIndex(int index){
+        this.index=index;
+    }
+    public void addBook(String bookTitle){
+        if(index<books.length){
+            books[index]=bookTitle;
+            index++;
+            System.out.println("Книга "+bookTitle+" добавлена.");
         }else{
-            a = "Нет";
+            System.out.println("Библиотека заполнена");
         }
-        System.out.println("Длина строки - "+text.length()+". Первый символ - "+text.charAt(0)+". Содержит Java: "+a);
-
-        System.out.println();
-
-        String str = "Java";
-        System.out.println(str.substring(3));
-        System.out.println(str.toUpperCase());
-        System.out.println(str.indexOf(0));
-
-        System.out.println();
-
-        String name = "Eggs";
-        int num = 10;
-        int one = 7;
-        int all = 7*10;
-        String shop = String.format("Вы купили %s, количество: %d, итоговая стоимость: %d.",name,num,all);
-        System.out.println(shop);
+    }
+    public void allBooks(){
+        System.out.println("Список всех книг");
+        if(index==0){
+            System.out.println("Библиотека пуста");
+        }else{
+            for(String allBooks:books){
+                System.out.println(allBooks);
+            }
+        }
+    }
+    public void searchBooks(String title){
+        boolean v = false;
+        for(String Title:books){
+            if(Title==title){
+                v=true;
+                System.out.println("Книга найдена");
+                break;
+            }
+        }
+        if(!v){
+            System.out.println("Книга не найдена");
+        }
     }
 }
