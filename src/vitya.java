@@ -298,51 +298,84 @@
 //        System.out.println(shop);
 //    }
 //}
-class Library{
-    private String[] books=new String[5];
-    private int index = 0;
-    public String[] getBooks(){
-        return books;
+//class Library{
+//    private String[] books=new String[5];
+//    private int index = 0;
+//    public String[] getBooks(){
+//        return books;
+//    }
+//    public void setBooks(String[] books){
+//        this.books = books;
+//    }
+//    public int getIndex(){
+//        return index;
+//    }
+//    public void setIndex(int index){
+//        this.index=index;
+//    }
+//    public void addBook(String bookTitle){
+//        if(index<books.length){
+//            books[index]=bookTitle;
+//            index++;
+//            System.out.println("Книга "+bookTitle+" добавлена.");
+//        }else{
+//            System.out.println("Библиотека заполнена");
+//        }
+//    }
+//    public void allBooks(){
+//        System.out.println("Список всех книг");
+//        if(index==0){
+//            System.out.println("Библиотека пуста");
+//        }else{
+//            for(String allBooks:books){
+//                System.out.println(allBooks);
+//            }
+//        }
+//    }
+//    public void searchBooks(String title){
+//        boolean v = false;
+//        for(String Title:books){
+//            if(Title==title){
+//                v=true;
+//                System.out.println("Книга найдена");
+//                break;
+//            }
+//        }
+//        if(!v){
+//            System.out.println("Книга не найдена");
+//        }
+//    }
+//}
+public class Main{
+    public static int multiplay(int a,int b){
+        return a*b;
     }
-    public void setBooks(String[] books){
-        this.books = books;
+    public static int dum(int n){
+        if(n==0){
+            return 0;
+        }
+        return n+dum(n-1);
     }
-    public int getIndex(){
-        return index;
+    public static void product(String name){
+        System.out.println(name);
     }
-    public void setIndex(int index){
-        this.index=index;
+    public static void product(String name,int price){
+        System.out.println(name+"/n"+price);
     }
-    public void addBook(String bookTitle){
-        if(index<books.length){
-            books[index]=bookTitle;
-            index++;
-            System.out.println("Книга "+bookTitle+" добавлена.");
-        }else{
-            System.out.println("Библиотека заполнена");
+    public static void main(String[] args){
+        System.out.println(multiplay(1,2));
+        System.out.println(dum(13));
+        product("dad");
+        product("momo",1);
+    }
+    public static int sum(int a) {
+        if (a < 10) {
+            return a;
+        } else {
+            return a % 10 + sum(a / 10);
         }
     }
-    public void allBooks(){
-        System.out.println("Список всех книг");
-        if(index==0){
-            System.out.println("Библиотека пуста");
-        }else{
-            for(String allBooks:books){
-                System.out.println(allBooks);
-            }
-        }
-    }
-    public void searchBooks(String title){
-        boolean v = false;
-        for(String Title:books){
-            if(Title==title){
-                v=true;
-                System.out.println("Книга найдена");
-                break;
-            }
-        }
-        if(!v){
-            System.out.println("Книга не найдена");
-        }
+    public static int P(int a){
+        return a*4;
     }
 }
