@@ -346,36 +346,82 @@
 //        }
 //    }
 //}
-public class Main{
-    public static int multiplay(int a,int b){
-        return a*b;
+//public class Main{
+//    public static int multiplay(int a,int b){
+//        return a*b;
+//    }
+//    public static int dum(int n){
+//        if(n==0){
+//            return 0;
+//        }
+//        return n+dum(n-1);
+//    }
+//    public static void product(String name){
+//        System.out.println(name);
+//    }
+//    public static void product(String name,int price){
+//        System.out.println(name+"/n"+price);
+//    }
+//    public static void main(String[] args){
+//        System.out.println(multiplay(1,2));
+//        System.out.println(dum(13));
+//        product("dad");
+//        product("momo",1);
+//    }
+//    public static int sum(int a) {
+//        if (a < 10) {
+//            return a;
+//        } else {
+//            return a % 10 + sum(a / 10);
+//        }
+//    }
+//    public static int P(int a){
+//        return a*4;
+//    }
+//}
+class Car{
+    String brand;
+    String color;
+    int year;
+    void drive(){
+        System.out.println(brand+" едет.");
     }
-    public static int dum(int n){
-        if(n==0){
-            return 0;
+    void stopDrive(){
+        System.out.println(brand+" не едет.");
+    }
+    void displayInfo(){
+        System.out.println("Марка: "+brand+". Цвет: "+color+". Год выпуска: "+year);
+    }
+}
+
+class ElectricCar extends Car{
+    @Override
+    void drive(){
+        System.out.println("Двигатель запущен");
+    }
+    void stopDrive(){
+        System.out.println("Двигатель остановлен");
+    }
+    private double battery;
+    public void Bat(double battery){
+        if(battery<20){
+            System.out.println("Батарея разряжена, требуется зарядка");
         }
-        return n+dum(n-1);
     }
-    public static void product(String name){
-        System.out.println(name);
-    }
-    public static void product(String name,int price){
-        System.out.println(name+"/n"+price);
-    }
+}
+
+public class vitya{
     public static void main(String[] args){
-        System.out.println(multiplay(1,2));
-        System.out.println(dum(13));
-        product("dad");
-        product("momo",1);
-    }
-    public static int sum(int a) {
-        if (a < 10) {
-            return a;
-        } else {
-            return a % 10 + sum(a / 10);
-        }
-    }
-    public static int P(int a){
-        return a*4;
+        Car car1 = new Car();
+        car1.brand = "Reno";
+        car1.color = "seroburomalinovyi";
+        car1.year = 1543;
+        car1.drive();
+        car1.stopDrive();
+        car1.displayInfo();
+        ElectricCar tesla = new ElectricCar();
+        tesla.drive();
+        tesla.stopDrive();
+        tesla.Bat(13);
     }
 }
