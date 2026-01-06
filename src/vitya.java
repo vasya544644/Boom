@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.*;
+import java.util.List;
+import java.util.stream.Collectors;
+
 //public class vitya {
 //    public static void main(String[] args){
 //        int vasya = 1123;
@@ -379,49 +384,108 @@
 //        return a*4;
 //    }
 //}
-class Car{
-    String brand;
-    String color;
-    int year;
-    void drive(){
-        System.out.println(brand+" едет.");
+//class Car{
+//    String brand;
+//    String color;
+//    int year;
+//    void drive(){
+//        System.out.println(brand+" едет.");
+//    }
+//    void stopDrive(){
+//        System.out.println(brand+" не едет.");
+//    }
+//    void displayInfo(){
+//        System.out.println("Марка: "+brand+". Цвет: "+color+". Год выпуска: "+year);
+//    }
+//}
+//
+//class ElectricCar extends Car{
+//    @Override
+//    void drive(){
+//        System.out.println("Двигатель запущен");
+//    }
+//    void stopDrive(){
+//        System.out.println("Двигатель остановлен");
+//    }
+//    private double battery;
+//    public void Bat(double battery){
+//        if(battery<20){
+//            System.out.println("Батарея разряжена, требуется зарядка");
+//        }
+//    }
+//}
+//
+//public class vitya{
+//    public static void main(String[] args){
+//        Car car1 = new Car();
+//        car1.brand = "Reno";
+//        car1.color = "seroburomalinovyi";
+//        car1.year = 1543;
+//        car1.drive();
+//        car1.stopDrive();
+//        car1.displayInfo();
+//        ElectricCar tesla = new ElectricCar();
+//        tesla.drive();
+//        tesla.stopDrive();
+//        tesla.Bat(13);
+//    }
+//}
+
+class Person{
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name=name;
+        this.age=age;
     }
-    void stopDrive(){
-        System.out.println(brand+" не едет.");
+
+    public String getName() {
+        return name;
     }
-    void displayInfo(){
-        System.out.println("Марка: "+brand+". Цвет: "+color+". Год выпуска: "+year);
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age >= 0 && age <= 150) {
+            this.age = age;
+        } else {
+            throw new IllegalArgumentException("Недопустимый возраст");
+        }
     }
 }
 
-class ElectricCar extends Car{
-    @Override
-    void drive(){
-        System.out.println("Двигатель запущен");
+class Employee extends Person{
+    private double salary;
+    public Employee(String name, int age,double salary){
+        super(name, age);
+        this.salary=salary;
     }
-    void stopDrive(){
-        System.out.println("Двигатель остановлен");
+
+    public double getSalary(){
+        return salary;
     }
-    private double battery;
-    public void Bat(double battery){
-        if(battery<20){
-            System.out.println("Батарея разряжена, требуется зарядка");
-        }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public void displayInfo() {
+        System.out.println("Имя: " + getName());
+        System.out.println("Возраст: " + getAge());
     }
 }
 
 public class vitya{
     public static void main(String[] args){
-        Car car1 = new Car();
-        car1.brand = "Reno";
-        car1.color = "seroburomalinovyi";
-        car1.year = 1543;
-        car1.drive();
-        car1.stopDrive();
-        car1.displayInfo();
-        ElectricCar tesla = new ElectricCar();
-        tesla.drive();
-        tesla.stopDrive();
-        tesla.Bat(13);
+        Person person = new Person("Dima",12);
+        Person person1 = new Employee("Kolya",21,64000);
     }
 }
+
