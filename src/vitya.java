@@ -431,61 +431,96 @@ import java.util.stream.Collectors;
 //    }
 //}
 
-class Person{
-    private String name;
-    private int age;
+//class Person{
+//    private String name;
+//    private int age;
+//
+//    public Person(String name, int age) {
+//        this.name=name;
+//        this.age=age;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public int getAge() {
+//        return age;
+//    }
+//
+//    public void setAge(int age) {
+//        if (age >= 0 && age <= 150) {
+//            this.age = age;
+//        } else {
+//            throw new IllegalArgumentException("Недопустимый возраст");
+//        }
+//    }
+//}
+//
+//class Employee extends Person{
+//    private double salary;
+//    public Employee(String name, int age,double salary){
+//        super(name, age);
+//        this.salary=salary;
+//    }
+//
+//    public double getSalary(){
+//        return salary;
+//    }
+//
+//    public void setSalary(double salary) {
+//        this.salary = salary;
+//    }
+//
+//    public void displayInfo() {
+//        System.out.println("Имя: " + getName());
+//        System.out.println("Возраст: " + getAge());
+//    }
+//}
+//
+//public class vitya{
+//    public static void main(String[] args){
+//        Person person = new Person("Dima",12);
+//        Person person1 = new Employee("Kolya",21,64000);
+//    }
+//}
 
-    public Person(String name, int age) {
-        this.name=name;
-        this.age=age;
-    }
+interface Transport{
+    void move();
+}
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        if (age >= 0 && age <= 150) {
-            this.age = age;
-        } else {
-            throw new IllegalArgumentException("Недопустимый возраст");
-        }
+class Car implements Transport{
+    public void move(){
+        System.out.println("Машина едте");
     }
 }
 
-class Employee extends Person{
-    private double salary;
-    public Employee(String name, int age,double salary){
-        super(name, age);
-        this.salary=salary;
-    }
-
-    public double getSalary(){
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-    public void displayInfo() {
-        System.out.println("Имя: " + getName());
-        System.out.println("Возраст: " + getAge());
+class Bike implements Transport{
+    public void move(){
+        System.out.println("Байк едет");
     }
 }
 
-public class vitya{
+class TransportManager{
+    public void startTransport(Transport transport){
+        transport.move();
+    }
+}
+
+public class vitya {
     public static void main(String[] args){
-        Person person = new Person("Dima",12);
-        Person person1 = new Employee("Kolya",21,64000);
+        Car car = new Car();
+        Bike bike = new Bike();
+        TransportManager transportManager = new TransportManager();
+
+        System.out.println("Запуск машины");
+        transportManager.startTransport(car);
+
+        System.out.println("Запуск мотоцикла");
+        transportManager.startTransport(bike);
     }
 }
-
