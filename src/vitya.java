@@ -488,39 +488,62 @@ import java.util.stream.Collectors;
 //        Person person1 = new Employee("Kolya",21,64000);
 //    }
 //}
+//
+//interface Transport{
+//    void move();
+//}
+//
+//class Car implements Transport{
+//    public void move(){
+//        System.out.println("Машина едте");
+//    }
+//}
+//
+//class Bike implements Transport{
+//    public void move(){
+//        System.out.println("Байк едет");
+//    }
+//}
+//
+//class TransportManager{
+//    public void startTransport(Transport transport){
+//        transport.move();
+//    }
+//}
+//
+//public class vitya {
+//    public static void main(String[] args){
+//        Car car = new Car();
+//        Bike bike = new Bike();
+//        TransportManager transportManager = new TransportManager();
+//
+//        System.out.println("Запуск машины");
+//        transportManager.startTransport(car);
+//
+//        System.out.println("Запуск мотоцикла");
+//        transportManager.startTransport(bike);
+//    }
+//}
 
-interface Transport{
-    void move();
-}
-
-class Car implements Transport{
-    public void move(){
-        System.out.println("Машина едте");
-    }
-}
-
-class Bike implements Transport{
-    public void move(){
-        System.out.println("Байк едет");
-    }
-}
-
-class TransportManager{
-    public void startTransport(Transport transport){
-        transport.move();
+class NegativeNumberException extends Exception {
+    public NegativeNumberException(String message) {
+        super(message);
     }
 }
 
 public class vitya {
     public static void main(String[] args){
-        Car car = new Car();
-        Bike bike = new Bike();
-        TransportManager transportManager = new TransportManager();
-
-        System.out.println("Запуск машины");
-        transportManager.startTransport(car);
-
-        System.out.println("Запуск мотоцикла");
-        transportManager.startTransport(bike);
+        try{
+            int number = 100;
+            int user = -1;
+            System.out.println(number/user);
+            throw new NegativeNumberException("Нельзя делить на отрицательные числа");
+        }catch (ArithmeticException e){
+            System.out.println("Ощибка: невозможно делить на ноль");
+        }catch (InputMismatchException e){
+            System.out.println("Ощибка: ввод нечислового значения");
+        }catch (NegativeNumberException e){
+            System.out.println("Нельзя делить на отрицательные числа");
+        }
     }
 }
