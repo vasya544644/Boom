@@ -1,7 +1,4 @@
-import java.util.ArrayList;
 import java.util.*;
-import java.util.List;
-import java.util.stream.Collectors;
 
 //public class vitya {
 //    public static void main(String[] args){
@@ -525,25 +522,191 @@ import java.util.stream.Collectors;
 //    }
 //}
 
-class NegativeNumberException extends Exception {
-    public NegativeNumberException(String message) {
-        super(message);
+//class NegativeNumberException extends Exception {
+//    public NegativeNumberException(String message) {
+//        super(message);
+//    }
+//}
+//
+//public class vitya {
+//    public static void main(String[] args){
+//        try{
+//            int number = 100;
+//            int user = -1;
+//            System.out.println(number/user);
+//            throw new NegativeNumberException("Нельзя делить на отрицательные числа");
+//        }catch (ArithmeticException e){
+//            System.out.println("Ощибка: невозможно делить на ноль");
+//        }catch (InputMismatchException e){
+//            System.out.println("Ощибка: ввод нечислового значения");
+//        }catch (NegativeNumberException e){
+//            System.out.println("Нельзя делить на отрицательные числа");
+//        }
+//    }
+//}
+
+//class Scanner implements Comparable<Scanner>{
+//    String title;
+//    public Scanner(String title){
+//        this.title = title;
+//    }
+//    @Override
+//    public String toString(){
+//        return title;
+//    }
+//    @Override
+//    public int compareTo(Scanner other) {
+//        return this.title.compareTo(other.title);
+//    }
+//}
+//
+//class Cheese{
+//    String priority;
+//
+//}
+//
+//public class vitya {
+//    public static void main(String[] args){
+//        List<String> list = new ArrayList<>(); // Список покупок
+//        list.add(String.valueOf(new Scanner("Eggs")));
+//        list.add(String.valueOf(new Scanner("Meat")));
+//        list.add(String.valueOf(new Scanner("Rice")));
+//        list.remove("Meat");
+//        boolean exists = list.contains("Bread");
+//    }
+//}
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
+
+class Task {
+    String description;
+    int priority;
+
+    Task(String description, int priority) {
+        this.description = description;
+        this.priority = priority;
+    }
+
+    @Override
+    public String toString() {
+        return "[Приоритет " + priority + "] " + description;
     }
 }
 
 public class vitya {
-    public static void main(String[] args){
-        try{
-            int number = 100;
-            int user = -1;
-            System.out.println(number/user);
-            throw new NegativeNumberException("Нельзя делить на отрицательные числа");
-        }catch (ArithmeticException e){
-            System.out.println("Ощибка: невозможно делить на ноль");
-        }catch (InputMismatchException e){
-            System.out.println("Ощибка: ввод нечислового значения");
-        }catch (NegativeNumberException e){
-            System.out.println("Нельзя делить на отрицательные числа");
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>(); // Список покупок
+        list.add(String.valueOf(new Scanner("Eggs")));
+        list.add(String.valueOf(new Scanner("Meat")));
+        list.add(String.valueOf(new Scanner("Rice")));
+        list.remove("Meat");
+        boolean exists = list.contains("Bread");
+
+        ArrayList<Task> tasks = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n=== МЕНЕДЖЕР ЗАДАЧ ===");
+            System.out.println("1. Добавить задачу");
+            System.out.println("2. Удалить задачу");
+            System.out.println("3. Показать задачи (сортировка по приоритету)");
+            System.out.println("4. Показать все задачи");
+            System.out.println("5. Выход");
+            System.out.print("Выберите действие: ");
+
+            int choice;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Пожалуйста, введите число.");
+                continue;
+            }
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Введите описание задачи: ");
+                    String description = scanner.nextLine();
+
+                    System.out.print("Введите приоритет (1-высокий, 2-средний, 3-низкий): ");
+                    try {
+                        int priority = Integer.parseInt(scanner.nextLine());
+                        if (priority < 1 || priority > 3) {
+                            System.out.println("Приоритет должен быть от 1 до 3.");
+                            break;
+                        }
+
+                        Task newTask = new Task(description, priority);
+                        tasks.add(newTask);
+                        System.out.println("Задача добавлена!");
+                    } catch (NumberFormatException e) {
+                        System.out.println("Пожалуйста, введите число для приоритета.");
+                    }
+                    break;
+
+                case 2:
+                    if (tasks.isEmpty()) {
+                        System.out.println("Список задач пуст.");
+                        break;
+                    }
+
+                    System.out.println("Текущие задачи:");
+                    for (int i = 0; i < tasks.size(); i++) {
+                        System.out.println((i + 1) + ". " + tasks.get(i));
+                    }
+
+                    System.out.print("Введите номер задачи для удаления: ");
+                    try {
+                        int index = Integer.parseInt(scanner.nextLine()) - 1;
+                        if (index >= 0 && index < tasks.size()) {
+                            Task removedTask = tasks.remove(index);
+                            System.out.println("Задача \"" + removedTask.description + "\" удалена.");
+                        } else {
+                            System.out.println("Неверный номер задачи.");
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Пожалуйста, введите число.");
+                    }
+                    break;
+
+                case 3:
+                    if (tasks.isEmpty()) {
+                        System.out.println("Список задач пуст.");
+                    } else {
+                        ArrayList<Task> sortedTasks = new ArrayList<>(tasks);
+                        Collections.sort(sortedTasks, new Comparator<Task>() {
+                            @Override
+                            public int compare(Task t1, Task t2) {
+                                return Integer.compare(t1.priority, t2.priority);
+                            }
+                        });
+                        System.out.println("=== ЗАДАЧИ (СОРТИРОВКА ПО ПРИОРИТЕТУ) ===");
+                        for (int i = 0; i < sortedTasks.size(); i++) {
+                            System.out.println((i + 1) + ". " + sortedTasks.get(i));
+                        }
+                    }
+                    break;
+
+                case 4:
+                    if (tasks.isEmpty()) {
+                        System.out.println("Список задач пуст.");
+                    } else {
+                        System.out.println("=== ВСЕ ЗАДАЧИ ===");
+                        for (int i = 0; i < tasks.size(); i++) {
+                            System.out.println((i + 1) + ". " + tasks.get(i));
+                        }
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Выход из программы.");
+                    scanner.close();
+                    return;
+
+                default:
+                    System.out.println("Неверный выбор. Попробуйте снова.");
+            }
         }
     }
 }
