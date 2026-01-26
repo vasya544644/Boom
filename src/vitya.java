@@ -1,5 +1,8 @@
 import java.util.*;
-
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
 //public class vitya {
 //    public static void main(String[] args){
 //        int vasya = 1123;
@@ -544,7 +547,6 @@ import java.util.*;
 //        }
 //    }
 //}
-
 //class Scanner implements Comparable<Scanner>{
 //    String title;
 //    public Scanner(String title){
@@ -575,138 +577,164 @@ import java.util.*;
 //        boolean exists = list.contains("Bread");
 //    }
 //}
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
-
-class Task {
-    String description;
-    int priority;
-
-    Task(String description, int priority) {
-        this.description = description;
-        this.priority = priority;
-    }
-
-    @Override
-    public String toString() {
-        return "[Приоритет " + priority + "] " + description;
-    }
-}
+//import java.util.ArrayList;
+//import java.util.Collections;
+//import java.util.Comparator;
+//import java.util.Scanner;
+//
+//class Task {
+//    String description;
+//    int priority;
+//
+//    Task(String description, int priority) {
+//        this.description = description;
+//        this.priority = priority;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "[Приоритет " + priority + "] " + description;
+//    }
+//}
+//
+//public class vitya {
+//    public static void main(String[] args) {
+//        List<String> list = new ArrayList<>(); // Список покупок
+//        list.add(String.valueOf(new Scanner("Eggs")));
+//        list.add(String.valueOf(new Scanner("Meat")));
+//        list.add(String.valueOf(new Scanner("Rice")));
+//        list.remove("Meat");
+//        boolean exists = list.contains("Bread");
+//
+//        ArrayList<Task> tasks = new ArrayList<>();
+//        Scanner scanner = new Scanner(System.in);
+//
+//        while (true) {
+//            System.out.println("\n=== МЕНЕДЖЕР ЗАДАЧ ===");
+//            System.out.println("1. Добавить задачу");
+//            System.out.println("2. Удалить задачу");
+//            System.out.println("3. Показать задачи (сортировка по приоритету)");
+//            System.out.println("4. Показать все задачи");
+//            System.out.println("5. Выход");
+//            System.out.print("Выберите действие: ");
+//
+//            int choice;
+//            try {
+//                choice = Integer.parseInt(scanner.nextLine());
+//            } catch (NumberFormatException e) {
+//                System.out.println("Пожалуйста, введите число.");
+//                continue;
+//            }
+//
+//            switch (choice) {
+//                case 1:
+//                    System.out.print("Введите описание задачи: ");
+//                    String description = scanner.nextLine();
+//
+//                    System.out.print("Введите приоритет (1-высокий, 2-средний, 3-низкий): ");
+//                    try {
+//                        int priority = Integer.parseInt(scanner.nextLine());
+//                        if (priority < 1 || priority > 3) {
+//                            System.out.println("Приоритет должен быть от 1 до 3.");
+//                            break;
+//                        }
+//
+//                        Task newTask = new Task(description, priority);
+//                        tasks.add(newTask);
+//                        System.out.println("Задача добавлена!");
+//                    } catch (NumberFormatException e) {
+//                        System.out.println("Пожалуйста, введите число для приоритета.");
+//                    }
+//                    break;
+//
+//                case 2:
+//                    if (tasks.isEmpty()) {
+//                        System.out.println("Список задач пуст.");
+//                        break;
+//                    }
+//
+//                    System.out.println("Текущие задачи:");
+//                    for (int i = 0; i < tasks.size(); i++) {
+//                        System.out.println((i + 1) + ". " + tasks.get(i));
+//                    }
+//
+//                    System.out.print("Введите номер задачи для удаления: ");
+//                    try {
+//                        int index = Integer.parseInt(scanner.nextLine()) - 1;
+//                        if (index >= 0 && index < tasks.size()) {
+//                            Task removedTask = tasks.remove(index);
+//                            System.out.println("Задача \"" + removedTask.description + "\" удалена.");
+//                        } else {
+//                            System.out.println("Неверный номер задачи.");
+//                        }
+//                    } catch (NumberFormatException e) {
+//                        System.out.println("Пожалуйста, введите число.");
+//                    }
+//                    break;
+//
+//                case 3:
+//                    if (tasks.isEmpty()) {
+//                        System.out.println("Список задач пуст.");
+//                    } else {
+//                        ArrayList<Task> sortedTasks = new ArrayList<>(tasks);
+//                        Collections.sort(sortedTasks, new Comparator<Task>() {
+//                            @Override
+//                            public int compare(Task t1, Task t2) {
+//                                return Integer.compare(t1.priority, t2.priority);
+//                            }
+//                        });
+//                        System.out.println("=== ЗАДАЧИ (СОРТИРОВКА ПО ПРИОРИТЕТУ) ===");
+//                        for (int i = 0; i < sortedTasks.size(); i++) {
+//                            System.out.println((i + 1) + ". " + sortedTasks.get(i));
+//                        }
+//                    }
+//                    break;
+//
+//                case 4:
+//                    if (tasks.isEmpty()) {
+//                        System.out.println("Список задач пуст.");
+//                    } else {
+//                        System.out.println("=== ВСЕ ЗАДАЧИ ===");
+//                        for (int i = 0; i < tasks.size(); i++) {
+//                            System.out.println((i + 1) + ". " + tasks.get(i));
+//                        }
+//                    }
+//                    break;
+//
+//                case 5:
+//                    System.out.println("Выход из программы.");
+//                    scanner.close();
+//                    return;
+//
+//                default:
+//                    System.out.println("Неверный выбор. Попробуйте снова.");
+//            }
+//        }
+//    }
+//}
 
 public class vitya {
-    public static void main(String[] args) {
-        List<String> list = new ArrayList<>(); // Список покупок
-        list.add(String.valueOf(new Scanner("Eggs")));
-        list.add(String.valueOf(new Scanner("Meat")));
-        list.add(String.valueOf(new Scanner("Rice")));
-        list.remove("Meat");
-        boolean exists = list.contains("Bread");
-
-        ArrayList<Task> tasks = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            System.out.println("\n=== МЕНЕДЖЕР ЗАДАЧ ===");
-            System.out.println("1. Добавить задачу");
-            System.out.println("2. Удалить задачу");
-            System.out.println("3. Показать задачи (сортировка по приоритету)");
-            System.out.println("4. Показать все задачи");
-            System.out.println("5. Выход");
-            System.out.print("Выберите действие: ");
-
-            int choice;
-            try {
-                choice = Integer.parseInt(scanner.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Пожалуйста, введите число.");
-                continue;
-            }
-
-            switch (choice) {
-                case 1:
-                    System.out.print("Введите описание задачи: ");
-                    String description = scanner.nextLine();
-
-                    System.out.print("Введите приоритет (1-высокий, 2-средний, 3-низкий): ");
-                    try {
-                        int priority = Integer.parseInt(scanner.nextLine());
-                        if (priority < 1 || priority > 3) {
-                            System.out.println("Приоритет должен быть от 1 до 3.");
-                            break;
-                        }
-
-                        Task newTask = new Task(description, priority);
-                        tasks.add(newTask);
-                        System.out.println("Задача добавлена!");
-                    } catch (NumberFormatException e) {
-                        System.out.println("Пожалуйста, введите число для приоритета.");
-                    }
-                    break;
-
-                case 2:
-                    if (tasks.isEmpty()) {
-                        System.out.println("Список задач пуст.");
-                        break;
-                    }
-
-                    System.out.println("Текущие задачи:");
-                    for (int i = 0; i < tasks.size(); i++) {
-                        System.out.println((i + 1) + ". " + tasks.get(i));
-                    }
-
-                    System.out.print("Введите номер задачи для удаления: ");
-                    try {
-                        int index = Integer.parseInt(scanner.nextLine()) - 1;
-                        if (index >= 0 && index < tasks.size()) {
-                            Task removedTask = tasks.remove(index);
-                            System.out.println("Задача \"" + removedTask.description + "\" удалена.");
-                        } else {
-                            System.out.println("Неверный номер задачи.");
-                        }
-                    } catch (NumberFormatException e) {
-                        System.out.println("Пожалуйста, введите число.");
-                    }
-                    break;
-
-                case 3:
-                    if (tasks.isEmpty()) {
-                        System.out.println("Список задач пуст.");
-                    } else {
-                        ArrayList<Task> sortedTasks = new ArrayList<>(tasks);
-                        Collections.sort(sortedTasks, new Comparator<Task>() {
-                            @Override
-                            public int compare(Task t1, Task t2) {
-                                return Integer.compare(t1.priority, t2.priority);
-                            }
-                        });
-                        System.out.println("=== ЗАДАЧИ (СОРТИРОВКА ПО ПРИОРИТЕТУ) ===");
-                        for (int i = 0; i < sortedTasks.size(); i++) {
-                            System.out.println((i + 1) + ". " + sortedTasks.get(i));
-                        }
-                    }
-                    break;
-
-                case 4:
-                    if (tasks.isEmpty()) {
-                        System.out.println("Список задач пуст.");
-                    } else {
-                        System.out.println("=== ВСЕ ЗАДАЧИ ===");
-                        for (int i = 0; i < tasks.size(); i++) {
-                            System.out.println((i + 1) + ". " + tasks.get(i));
-                        }
-                    }
-                    break;
-
-                case 5:
-                    System.out.println("Выход из программы.");
-                    scanner.close();
-                    return;
-
-                default:
-                    System.out.println("Неверный выбор. Попробуйте снова.");
-            }
+    public static void main(String[] args){
+        Map<Integer,String> books = new HashMap<>();
+        books.put(1,"Марк Твен");
+        books.put(2,"Шерлок Холмс");
+        books.put(3,"Остров сокровищ");
+        System.out.println("Все книги "+books);
+        Map<String,Integer> contact = new LinkedHashMap<>();
+        contact.put("Дима",123);
+        contact.put("Вика",132);
+        contact.put("Макс",312);
+        System.out.println(contact);
+        String name = "Макс";
+        if(contact.containsKey(name)){
+            System.out.println(contact.get(name));
+        }else{
+            System.out.println("Нет такого имени в контактах");
         }
+        Map<String,Integer> student = new TreeMap<>();
+        student.put("Дима",5);
+        student.put("Вика",3);
+        student.put("Макс",4);
+        System.out.println(student);
     }
 }
