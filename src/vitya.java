@@ -712,29 +712,55 @@ import java.util.Scanner;
 //        }
 //    }
 //}
-
+//public class vitya {
+//    public static void main(String[] args){
+//        Map<Integer,String> books = new HashMap<>();
+//        books.put(1,"Марк Твен");
+//        books.put(2,"Шерлок Холмс");
+//        books.put(3,"Остров сокровищ");
+//        System.out.println("Все книги "+books);
+//        Map<String,Integer> contact = new LinkedHashMap<>();
+//        contact.put("Дима",123);
+//        contact.put("Вика",132);
+//        contact.put("Макс",312);
+//        System.out.println(contact);
+//        String name = "Макс";
+//        if(contact.containsKey(name)){
+//            System.out.println(contact.get(name));
+//        }else{
+//            System.out.println("Нет такого имени в контактах");
+//        }
+//        Map<String,Integer> student = new TreeMap<>();
+//        student.put("Дима",5);
+//        student.put("Вика",3);
+//        student.put("Макс",4);
+//        System.out.println(student);
+//    }
+//}
 public class vitya {
     public static void main(String[] args){
-        Map<Integer,String> books = new HashMap<>();
-        books.put(1,"Марк Твен");
-        books.put(2,"Шерлок Холмс");
-        books.put(3,"Остров сокровищ");
-        System.out.println("Все книги "+books);
-        Map<String,Integer> contact = new LinkedHashMap<>();
-        contact.put("Дима",123);
-        contact.put("Вика",132);
-        contact.put("Макс",312);
-        System.out.println(contact);
-        String name = "Макс";
-        if(contact.containsKey(name)){
-            System.out.println(contact.get(name));
-        }else{
-            System.out.println("Нет такого имени в контактах");
+        System.out.println("№1");
+        Set<String> users = new HashSet<>();
+        users.add("Dima");
+        users.add("Vitya");
+        users.add("Misha");
+        System.out.println(users.contains("Dima"));
+        System.out.println("Список всех пользователей:");
+        for(String user:users){
+            System.out.println(user);
         }
-        Map<String,Integer> student = new TreeMap<>();
-        student.put("Дима",5);
-        student.put("Вика",3);
-        student.put("Макс",4);
-        System.out.println(student);
+        System.out.println("№2");
+        Set<String> words = new TreeSet<>();
+        words.add("Bars");
+        words.add("Ark");
+        words.add("Hard");
+        System.out.println(words);
+        System.out.println("№3");
+        Set<String> guests = new LinkedHashSet<>();
+        guests.add("Sasha");
+        guests.add("Dasha");
+        guests.add("Kris");
+        guests.add("Sasha");
+        System.out.println("Список гостей: "+guests);
     }
 }
