@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 //public class vitya {
 //    public static void main(String[] args){
 //        int vasya = 1123;
@@ -737,30 +738,50 @@ import java.util.Scanner;
 //        System.out.println(student);
 //    }
 //}
+//public class vitya {
+//    public static void main(String[] args){
+//        System.out.println("№1");
+//        Set<String> users = new HashSet<>();
+//        users.add("Dima");
+//        users.add("Vitya");
+//        users.add("Misha");
+//        System.out.println(users.contains("Dima"));
+//        System.out.println("Список всех пользователей:");
+//        for(String user:users){
+//            System.out.println(user);
+//        }
+//        System.out.println("№2");
+//        Set<String> words = new TreeSet<>();
+//        words.add("Bars");
+//        words.add("Ark");
+//        words.add("Hard");
+//        System.out.println(words);
+//        System.out.println("№3");
+//        Set<String> guests = new LinkedHashSet<>();
+//        guests.add("Sasha");
+//        guests.add("Dasha");
+//        guests.add("Kris");
+//        guests.add("Sasha");
+//        System.out.println("Список гостей: "+guests);
+//    }
+//}
 public class vitya {
     public static void main(String[] args){
-        System.out.println("№1");
-        Set<String> users = new HashSet<>();
-        users.add("Dima");
-        users.add("Vitya");
-        users.add("Misha");
-        System.out.println(users.contains("Dima"));
-        System.out.println("Список всех пользователей:");
-        for(String user:users){
-            System.out.println(user);
-        }
-        System.out.println("№2");
-        Set<String> words = new TreeSet<>();
-        words.add("Bars");
-        words.add("Ark");
-        words.add("Hard");
-        System.out.println(words);
-        System.out.println("№3");
-        Set<String> guests = new LinkedHashSet<>();
-        guests.add("Sasha");
-        guests.add("Dasha");
-        guests.add("Kris");
-        guests.add("Sasha");
-        System.out.println("Список гостей: "+guests);
+        List<Integer> number = Arrays.asList(1,2,3,4,5,6);
+        List<Integer> num = number.stream()
+                .filter(n->n%2==0)
+                .map(n->n*3)
+                .collect(Collectors.toList());
+        System.out.println(num);
+        List<String> words = Arrays.asList("sdf","dfgadfh","dfg","adsugkojahdfg");
+        List<String> word = words.stream()
+                .filter(s->s.length()>5)
+                .collect(Collectors.toList());
+        System.out.println(word);
+        List<String> slovos = Arrays.asList("asd","bsd","dsa","qew");
+        List<String> slovo = slovos.stream()
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+        System.out.println(slovo);
     }
 }
